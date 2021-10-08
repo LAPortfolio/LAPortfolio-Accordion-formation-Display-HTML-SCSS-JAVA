@@ -1,0 +1,199 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  --hue-color: 225;
+  --first-color: hsl(var(--hue-color), 48%, 35%);
+  --title-color: hsl(var(--hue-color), 48%, 22%);
+  --text-color: hsl(var(--hue-color), 12%, 35%);
+  --body-color: hsl(var(--hue-color), 48%, 98%);
+  --container-color: #fff;
+  /*========== Font and typography ==========*/
+  --body-font: "Poppins", sans-serif;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+}
+
+@media screen and (min-width: 968px) {
+  :root {
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813;
+  }
+}
+
+/*=============== BASE ===============*/
+/*=============== LAYOUT ===============*/
+/*=============== ACCORDION ===============*/
+/*Rotate icon and add font weight to titles*/
+/*=============== MEDIA QUERIES ===============*/
+/* For medium devices */
+/* For large devices */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+/*=============== LAYOUT ===============*/
+.container {
+  max-width: 968px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.accordion {
+  display: grid;
+  align-content: center;
+  height: 100vh;
+}
+
+.accordion__container {
+  display: grid;
+  row-gap: 0.75rem;
+  padding: 2rem 1rem;
+  background-color: var(--container-color);
+  border-radius: 0.5rem;
+  box-shadow: 0 12px 32px rgba(51, 51, 51, 0.1);
+}
+
+.accordion__title {
+  font-size: var(--small-font-size);
+  color: var(--title-color);
+  font-weight: 400;
+  margin-top: 0.15rem;
+  transition: 0.2s;
+}
+
+.accordion__header {
+  display: flex;
+  column-gap: 0.5rem;
+  padding: 1.25rem 1.25rem 1.25rem 1rem;
+  cursor: pointer;
+}
+
+.accordion__description {
+  padding: 0 1.25rem 1.25rem 3rem;
+  font-size: var(--smaller-font-size);
+  transition: all 1s ease;
+}
+
+.accordion__icon {
+  font-size: 1.5rem;
+  height: max-content;
+  color: var(--title-color);
+  transition: 0.3s;
+}
+
+.accordion__item {
+  box-shadow: 0 2px 6px rgba(51, 51, 51, 0.1);
+  background-color: var(--container-color);
+  border-radius: 0.25rem;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.accordion__item::after {
+  content: "";
+  background-color: var(--first-color);
+  width: 10px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0.25rem 00 0.25rem;
+}
+
+.accordion__item:nth-child(1) {
+  background-color: #fee6e6;
+}
+
+.accordion__item:nth-child(1)::after {
+  background-color: #a20606;
+}
+
+.accordion__item:nth-child(2) {
+  background-color: #f9cdcd;
+}
+
+.accordion__item:nth-child(2)::after {
+  background-color: #800f0f;
+}
+
+.accordion__item:nth-child(3) {
+  background-color: #f5bcbc;
+}
+
+.accordion__item:nth-child(3)::after {
+  background-color: #3e0909;
+}
+
+.accordion__item:nth-child(4) {
+  background-color: #f0c1c1;
+}
+
+.accordion__item:nth-child(4)::after {
+  background-color: #190606;
+}
+
+.accordion__content {
+  overflow: hidden;
+  height: 0;
+  transition: all 0.25s ease;
+}
+
+.accordion-open {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.accordion-open .accordion__icon {
+  transform: rotate(45deg);
+  animation: spin 0.3s linear;
+}
+
+.accordion-open .accordion__title {
+  font-weight: 600;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(405deg);
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .accordion__container {
+    width: 550px;
+    padding: 2.5rem;
+    justify-self: center;
+    border-radius: 0.75rem;
+  }
+  .accordion__header {
+    padding: 1.5rem;
+  }
+  .accordion__title {
+    padding-right: 3.5rem;
+  }
+  .accordion__description {
+    padding: 0 4rem 1.25rem 3.5rem;
+  }
+}
+
+@media screen and (min-width: 968px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
